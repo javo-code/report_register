@@ -1,23 +1,31 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext.jsx";
+import './index.css'
 
 import RegisterPage from "./pages/RegisterPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
-import './index.css'
+import HomePage from "./pages/HomePage.jsx";
+import ReportFormPage from "./pages/ReportFormPage.jsx";
+import ReportsPage from "./pages/ReportsPage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
 
+import ProtectedRoute from "./ProtectedRoute.jsx";
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          < Route path='/' element={<h1>Home</h1>}/>
+          < Route path='/' element={<HomePage/>}/>
           < Route path='/login' element={<LoginPage />}/>
-          < Route path='/register' element={<RegisterPage />}/>
-          < Route path='/reports' element={<h1>Reports</h1>}/>
-          < Route path='/add-report' element={<h1>New Report</h1>}/>
-          < Route path='/report/:id' element={<h1>Update Report</h1>}/>
-          <Route path='/profile' element={<h1>Profile</h1>}/>
+          < Route path='/register' element={<RegisterPage />} />
+
+          <Route element={<ProtectedRoute/>}>
+            < Route path='/reports' element={<ReportsPage/>}/>
+            < Route path='/add-report' element={<ReportFormPage/>}/>
+            < Route path='/report/:id' element={<ReportFormPage/>}/>
+          <Route path='/profile' element={<ProfilePage/>}/>
+          </Route>
         </Routes>
       </BrowserRouter>
     </AuthProvider>

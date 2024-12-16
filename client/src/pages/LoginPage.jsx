@@ -12,9 +12,10 @@ function LoginPage() {
 
     const navigate = useNavigate();
 
-    useEffect(()=>{
-        if (isAuthenticated)navigate("/reports");
-    },[isAuthenticated]);
+useEffect(() => {
+    console.log("isAuthenticated changed:", isAuthenticated);
+    if (isAuthenticated) navigate("/reports");
+}, [isAuthenticated]);
 
 
     const onSubmit = handleSubmit((data) => {
@@ -60,7 +61,7 @@ function LoginPage() {
                     </button>
                 </form>
                 <p className="flex gap-x-2 justify-between">
-                    Don't have an acount yet? <Link to="/register" className="text-sky-500">Sign uo</Link>
+                    Don't have an acount yet? <Link to="/register" className="text-sky-500">Sign up</Link>
                 </p>
             </div>
         </div>
