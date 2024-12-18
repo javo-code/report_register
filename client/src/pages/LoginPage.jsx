@@ -61,7 +61,7 @@ useEffect(() => {
                     </button>
                 </form>
                 <p className="flex gap-x-2 justify-between">
-                    Don't have an acount yet? <Link to="/register" className="text-sky-500">Sign up</Link>
+                    Don't have an acount yet? <Link to="/reports" className="text-sky-500">Sign up</Link>
                 </p>
             </div>
         </div>
